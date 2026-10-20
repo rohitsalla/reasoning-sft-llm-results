@@ -1,12 +1,12 @@
 {
-  "snapshot_eastern": "2026-10-19T13:43:01-04:00",
+  "snapshot_eastern": "2026-10-19T23:29:14-04:00",
   "deadline_eastern": "2026-10-20T23:59:00-04:00",
   "prior_committed_gpu_hours": 40,
   "additional_authorized_gpu_hours": 57,
   "total_gpu_hour_cap": 97,
-  "parallel_distinct_plans": true,
   "strict_nine_of_nine_achieved": false,
-  "old_candidate_evaluation_complete": false,
+  "old_candidate_evaluation_complete": true,
+  "passed_gate_count": 2,
   "completed_benchmarks": [
     {
       "benchmark": "amc",
@@ -67,55 +67,252 @@
       "pass_at_1": 0.29396984924623115,
       "pass_at_8": 0.678391959798995,
       "truncated_samples": 176
+    },
+    {
+      "benchmark": "minerva",
+      "problems": 272,
+      "solved": 129,
+      "required_gate": 95,
+      "gate_passed": true,
+      "pass_at_1": 0.25919117647058826,
+      "pass_at_8": 0.4742647058823529,
+      "truncated_samples": 394
+    },
+    {
+      "benchmark": "olympiadbench",
+      "problems": 675,
+      "solved": 355,
+      "required_gate": 385,
+      "gate_passed": false,
+      "pass_at_1": 0.28425925925925927,
+      "pass_at_8": 0.5259259259259259,
+      "truncated_samples": 1213
+    },
+    {
+      "benchmark": "gpqa",
+      "problems": 198,
+      "solved": 131,
+      "required_gate": 121,
+      "gate_passed": true,
+      "pass_at_1": 0.1893939393939394,
+      "pass_at_8": 0.6616161616161617,
+      "truncated_samples": 519
     }
   ],
-  "remaining_benchmarks": [
-    "minerva",
-    "olympiadbench",
-    "gpqa"
-  ],
+  "remaining_benchmarks": [],
+  "matched_seven_benchmark_macro": {
+    "pass_at_1": {
+      "baseline": 0.23549731831212767,
+      "candidate": 0.2240686987195264
+    },
+    "pass_at_8": {
+      "baseline": 0.49547442493570193,
+      "candidate": 0.49621886950810984
+    }
+  },
+  "paired_question_ci95": {
+    "amc": {
+      "pass_at_1": {
+        "delta": -0.09375,
+        "ci95": [
+          -0.15625,
+          -0.0375
+        ]
+      },
+      "pass_at_8": {
+        "delta": -0.175,
+        "ci95": [
+          -0.325,
+          -0.05
+        ]
+      }
+    },
+    "aime25": {
+      "pass_at_1": {
+        "delta": 0.041666666666666664,
+        "ci95": [
+          0.004166666666666667,
+          0.0875
+        ]
+      },
+      "pass_at_8": {
+        "delta": 0.03333333333333333,
+        "ci95": [
+          -0.06666666666666667,
+          0.16666666666666666
+        ]
+      }
+    },
+    "aime": {
+      "pass_at_1": {
+        "delta": -0.004166666666666667,
+        "ci95": [
+          -0.058333333333333334,
+          0.058333333333333334
+        ]
+      },
+      "pass_at_8": {
+        "delta": -0.06666666666666667,
+        "ci95": [
+          -0.2,
+          0.06666666666666667
+        ]
+      }
+    },
+    "math": {
+      "pass_at_1": {
+        "delta": -0.01875,
+        "ci95": [
+          -0.0405,
+          0.00125
+        ]
+      },
+      "pass_at_8": {
+        "delta": 0.004,
+        "ci95": [
+          -0.024,
+          0.032
+        ]
+      }
+    },
+    "cn_math_2024": {
+      "pass_at_1": {
+        "delta": 0.05,
+        "ci95": [
+          -0.004166666666666667,
+          0.1125
+        ]
+      },
+      "pass_at_8": {
+        "delta": 0.13333333333333333,
+        "ci95": [
+          -0.03333333333333333,
+          0.3
+        ]
+      }
+    },
+    "kaoyan": {
+      "pass_at_1": {
+        "delta": 0.06972361809045226,
+        "ci95": [
+          0.03362944162436548,
+          0.10705445544554455
+        ]
+      },
+      "pass_at_8": {
+        "delta": 0.11055276381909548,
+        "ci95": [
+          0.04081632653061224,
+          0.17676767676767677
+        ]
+      }
+    },
+    "minerva": {
+      "pass_at_1": {
+        "delta": -0.051470588235294115,
+        "ci95": [
+          -0.07996323529411764,
+          -0.02619485294117647
+        ]
+      },
+      "pass_at_8": {
+        "delta": -0.022058823529411766,
+        "ci95": [
+          -0.06985294117647059,
+          0.022058823529411766
+        ]
+      }
+    },
+    "olympiadbench": {
+      "pass_at_1": {
+        "delta": 0.009259259259259259,
+        "ci95": [
+          -0.008888888888888889,
+          0.025925925925925925
+        ]
+      },
+      "pass_at_8": {
+        "delta": 0.03111111111111111,
+        "ci95": [
+          -0.002962962962962963,
+          0.06518518518518518
+        ]
+      }
+    },
+    "gpqa": {
+      "pass_at_1": {
+        "delta": -0.10542929292929293,
+        "ci95": [
+          -0.13762626262626262,
+          -0.07196969696969698
+        ]
+      },
+      "pass_at_8": {
+        "delta": -0.10606060606060606,
+        "ci95": [
+          -0.18181818181818182,
+          -0.025252525252525252
+        ]
+      }
+    }
+  },
   "jobs": [
     {
       "job_id": "1206228",
       "purpose": "original_candidate_all_nine_evaluation",
-      "state": "RUNNING"
-    },
-    {
-      "job_id": "1207375",
-      "purpose": "final_parent_training_token_accuracy",
       "state": "COMPLETED",
       "exit_code": "0:0",
-      "correct_tokens": 1109712,
-      "supervised_tokens": 1324044,
-      "accuracy": 0.8381232043648096,
-      "experimental_stage2_gate_passed": true
+      "end_eastern": "2026-10-19T18:04:38-04:00"
     },
     {
       "job_id": "1207378",
       "purpose": "stage2_training",
-      "state": "PENDING",
-      "reason": "Resources",
-      "gpus": 2,
-      "requested_hours": 6,
-      "provisional_start_eastern": "2026-10-19T17:55:49-04:00"
+      "state": "COMPLETED",
+      "updates": 750,
+      "epochs": 2,
+      "all_final_model_tensors_finite": true,
+      "evaluation_permitted": false,
+      "evaluation_block_reason": "No qualified parent development control; fixed truncation gate failed."
     },
     {
       "job_id": "1207417",
-      "purpose": "frozen_200_question_parent_dev_control",
-      "state": "RUNNING",
-      "gpus": 1,
-      "requested_hours": 2
+      "purpose": "parent_dev_control",
+      "state": "FAILED_GATE",
+      "solved": 111,
+      "problems": 200,
+      "truncated_samples": 331,
+      "maximum_allowed_truncated_samples": 80,
+      "total_samples": 1600
     },
     {
-      "job_id": "1207446",
-      "purpose": "assistance_candidate_compute_node_preparation",
-      "state": "RUNNING",
-      "gpus": 0,
-      "cpus": 8,
-      "requested_hours": 2
+      "job_id": "1207518",
+      "purpose": "assistance_training",
+      "state": "TIMEOUT",
+      "end_eastern": "2026-10-19T22:29:18-04:00",
+      "required_updates": 5625,
+      "highest_verified_recoverable_update": 4400,
+      "remaining_updates": 1225,
+      "all_saved_checkpoint_model_tensors_finite": true
+    },
+    {
+      "job_id": "1210354",
+      "purpose": "cpu_only_recovery_review",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "gpu_job_submitted": false
     }
   ],
-  "assistance_training_submitted": false,
+  "recovery_proposal": {
+    "status": "requires_human_approval_and_deadline_feasible_slot",
+    "gpus": 4,
+    "hours": 2,
+    "gpu_hours": 8,
+    "source_of_budget_if_approved": "Reassign unused Stage 2 final evaluation reserve; preserve 97 total and assistance final evaluation reserve.",
+    "currently_demonstrated_deadline_feasibility": false,
+    "gpu_job_submitted": false
+  },
   "source_data_or_question_ids_included": false,
-  "runtime_guarantee": false
+  "runtime_guarantee": false,
+  "native_all_nine_diagnostics_verified": true,
+  "public_diagnostics_file": "research/full_length_public_diagnostics_20261019.json"
 }

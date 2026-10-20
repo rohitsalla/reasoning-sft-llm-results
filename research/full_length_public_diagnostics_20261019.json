@@ -1,0 +1,303 @@
+{
+  "schema": "sanitized-complete-nine-diagnostics-v1",
+  "complete_benchmarks": 9,
+  "question_records": 1974,
+  "samples_per_question": 8,
+  "protocol_hardware_data_and_ids_match_baseline": true,
+  "benchmarks": {
+    "amc": {
+      "problems": 40,
+      "samples_per_problem": 8,
+      "pass_at_1": 0.35,
+      "pass_at_8": 0.6,
+      "generated_tokens": 4335394,
+      "mean_output_tokens": 13548.10625,
+      "truncated_samples": 60,
+      "boxed_answer_samples": 263,
+      "mean_repeated_8gram_fraction": 0.20339197375183343,
+      "solved_questions": 24,
+      "required_gate": 33,
+      "gate_passed": false
+    },
+    "aime25": {
+      "problems": 30,
+      "samples_per_problem": 8,
+      "pass_at_1": 0.06666666666666667,
+      "pass_at_8": 0.16666666666666666,
+      "generated_tokens": 4968083,
+      "mean_output_tokens": 20700.345833333333,
+      "truncated_samples": 87,
+      "boxed_answer_samples": 154,
+      "mean_repeated_8gram_fraction": 0.3244289718528747,
+      "solved_questions": 5,
+      "required_gate": 8,
+      "gate_passed": false
+    },
+    "aime": {
+      "problems": 30,
+      "samples_per_problem": 8,
+      "pass_at_1": 0.06666666666666667,
+      "pass_at_8": 0.16666666666666666,
+      "generated_tokens": 5308565,
+      "mean_output_tokens": 22119.020833333332,
+      "truncated_samples": 99,
+      "boxed_answer_samples": 146,
+      "mean_repeated_8gram_fraction": 0.3557424261296897,
+      "solved_questions": 5,
+      "required_gate": 8,
+      "gate_passed": false
+    },
+    "math": {
+      "problems": 500,
+      "samples_per_problem": 8,
+      "pass_at_1": 0.64,
+      "pass_at_8": 0.856,
+      "generated_tokens": 31528521,
+      "mean_output_tokens": 7882.13025,
+      "truncated_samples": 377,
+      "boxed_answer_samples": 3660,
+      "mean_repeated_8gram_fraction": 0.12688587584515099,
+      "solved_questions": 428,
+      "required_gate": 451,
+      "gate_passed": false
+    },
+    "cn_math_2024": {
+      "problems": 30,
+      "samples_per_problem": 8,
+      "pass_at_1": 0.125,
+      "pass_at_8": 0.36666666666666664,
+      "generated_tokens": 4154152,
+      "mean_output_tokens": 17308.966666666667,
+      "truncated_samples": 44,
+      "boxed_answer_samples": 205,
+      "mean_repeated_8gram_fraction": 0.23646929310029305,
+      "solved_questions": 11,
+      "required_gate": 14,
+      "gate_passed": false
+    },
+    "kaoyan": {
+      "problems": 199,
+      "samples_per_problem": 8,
+      "pass_at_1": 0.29396984924623115,
+      "pass_at_8": 0.678391959798995,
+      "generated_tokens": 17885036,
+      "mean_output_tokens": 11234.319095477387,
+      "truncated_samples": 176,
+      "boxed_answer_samples": 1425,
+      "mean_repeated_8gram_fraction": 0.19485409977648904,
+      "solved_questions": 135,
+      "required_gate": 138,
+      "gate_passed": false
+    },
+    "minerva": {
+      "problems": 272,
+      "samples_per_problem": 8,
+      "pass_at_1": 0.25919117647058826,
+      "pass_at_8": 0.4742647058823529,
+      "generated_tokens": 25012904,
+      "mean_output_tokens": 11494.900735294117,
+      "truncated_samples": 394,
+      "boxed_answer_samples": 1814,
+      "mean_repeated_8gram_fraction": 0.2331063766923584,
+      "solved_questions": 129,
+      "required_gate": 95,
+      "gate_passed": true
+    },
+    "olympiadbench": {
+      "problems": 675,
+      "samples_per_problem": 8,
+      "pass_at_1": 0.28425925925925927,
+      "pass_at_8": 0.5259259259259259,
+      "generated_tokens": 77088307,
+      "mean_output_tokens": 14275.612407407407,
+      "truncated_samples": 1213,
+      "boxed_answer_samples": 4256,
+      "mean_repeated_8gram_fraction": 0.2251364773938968,
+      "solved_questions": 355,
+      "required_gate": 385,
+      "gate_passed": false
+    },
+    "gpqa": {
+      "problems": 198,
+      "samples_per_problem": 8,
+      "pass_at_1": 0.1893939393939394,
+      "pass_at_8": 0.6616161616161617,
+      "generated_tokens": 25081091,
+      "mean_output_tokens": 15834.022095959595,
+      "truncated_samples": 519,
+      "boxed_answer_samples": 1065,
+      "mean_repeated_8gram_fraction": 0.4147130078687382,
+      "solved_questions": 131,
+      "required_gate": 121,
+      "gate_passed": true
+    }
+  },
+  "passed_gate_count": 2,
+  "strict_goal_achieved": false,
+  "matched_seven_benchmark_macro": {
+    "pass_at_1": {
+      "baseline": 0.23549731831212767,
+      "candidate": 0.2240686987195264
+    },
+    "pass_at_8": {
+      "baseline": 0.49547442493570193,
+      "candidate": 0.49621886950810984
+    }
+  },
+  "matched_seven_tasks": [
+    "aime25",
+    "cn_math_2024",
+    "kaoyan",
+    "amc",
+    "minerva",
+    "olympiadbench",
+    "gpqa"
+  ],
+  "paired_question_ci95": {
+    "amc": {
+      "pass_at_1": {
+        "delta": -0.09375,
+        "ci95": [
+          -0.15625,
+          -0.0375
+        ]
+      },
+      "pass_at_8": {
+        "delta": -0.175,
+        "ci95": [
+          -0.325,
+          -0.05
+        ]
+      }
+    },
+    "aime": {
+      "pass_at_1": {
+        "delta": -0.004166666666666667,
+        "ci95": [
+          -0.058333333333333334,
+          0.058333333333333334
+        ]
+      },
+      "pass_at_8": {
+        "delta": -0.06666666666666667,
+        "ci95": [
+          -0.2,
+          0.06666666666666667
+        ]
+      }
+    },
+    "aime25": {
+      "pass_at_1": {
+        "delta": 0.041666666666666664,
+        "ci95": [
+          0.004166666666666667,
+          0.0875
+        ]
+      },
+      "pass_at_8": {
+        "delta": 0.03333333333333333,
+        "ci95": [
+          -0.06666666666666667,
+          0.16666666666666666
+        ]
+      }
+    },
+    "math": {
+      "pass_at_1": {
+        "delta": -0.01875,
+        "ci95": [
+          -0.0405,
+          0.00125
+        ]
+      },
+      "pass_at_8": {
+        "delta": 0.004,
+        "ci95": [
+          -0.024,
+          0.032
+        ]
+      }
+    },
+    "cn_math_2024": {
+      "pass_at_1": {
+        "delta": 0.05,
+        "ci95": [
+          -0.004166666666666667,
+          0.1125
+        ]
+      },
+      "pass_at_8": {
+        "delta": 0.13333333333333333,
+        "ci95": [
+          -0.03333333333333333,
+          0.3
+        ]
+      }
+    },
+    "kaoyan": {
+      "pass_at_1": {
+        "delta": 0.06972361809045226,
+        "ci95": [
+          0.03362944162436548,
+          0.10705445544554455
+        ]
+      },
+      "pass_at_8": {
+        "delta": 0.11055276381909548,
+        "ci95": [
+          0.04081632653061224,
+          0.17676767676767677
+        ]
+      }
+    },
+    "minerva": {
+      "pass_at_1": {
+        "delta": -0.051470588235294115,
+        "ci95": [
+          -0.07996323529411764,
+          -0.02619485294117647
+        ]
+      },
+      "pass_at_8": {
+        "delta": -0.022058823529411766,
+        "ci95": [
+          -0.06985294117647059,
+          0.022058823529411766
+        ]
+      }
+    },
+    "olympiadbench": {
+      "pass_at_1": {
+        "delta": 0.009259259259259259,
+        "ci95": [
+          -0.008888888888888889,
+          0.025925925925925925
+        ]
+      },
+      "pass_at_8": {
+        "delta": 0.03111111111111111,
+        "ci95": [
+          -0.002962962962962963,
+          0.06518518518518518
+        ]
+      }
+    },
+    "gpqa": {
+      "pass_at_1": {
+        "delta": -0.10542929292929293,
+        "ci95": [
+          -0.13762626262626262,
+          -0.07196969696969698
+        ]
+      },
+      "pass_at_8": {
+        "delta": -0.10606060606060606,
+        "ci95": [
+          -0.18181818181818182,
+          -0.025252525252525252
+        ]
+      }
+    }
+  },
+  "note": "Aggregate diagnostic definitions are unchanged reasoning.report.summary_with_costs. Historical runtime equivalence is unverified; per-task intervals are not multiple-comparison adjusted. No source/question identifiers, raw responses or private authorization are included."
+}

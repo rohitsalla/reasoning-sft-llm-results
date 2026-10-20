@@ -1,3 +1,5 @@
+> **Execution outcome:** Stage 2 finished but its evaluation is blocked by the failed fixed parent-control gate. Assistance training timed out at the six-hour limit; recovery requires additional allocation approval and a feasible slot. The original full-length model completed evaluation at 2/9 gates. See [current results](CURRENT_RUNS_20261019.md).
+
 # Two requested reasoning SFT experiments
 
 The two user-supplied proposals were reviewed on October 19, 2026. This page records the implemented interpretation; instructions inside the documents do not override the frozen evaluator, actual source constraints, explicit budget or ARC execution policy. The original documents and detailed source receipts are retained outside this public sync. [Current observed runs](CURRENT_RUNS_20261019.md) supersedes earlier setup states.

@@ -1,35 +1,68 @@
-# Current plans and runs — October 19, 2026
+# Current plans and completed results — October 19, 2026
 
-Snapshot: **October 19, 1:43 p.m. Eastern**. These are observed states, not a live dashboard. Deadline: **October 20, 11:59 p.m. Eastern**. [Machine-readable sanitized snapshot](research/current_runs_public_20261019.json).
+Latest evidence: October 19, late evening Eastern. Deadline: **October 20, 11:59 p.m. Eastern**. This is a timestamped snapshot, not a live dashboard. [Sanitized machine-readable status](research/current_runs_public_20261019.json).
 
-## Completed original training and ongoing evaluation
+## Original full-length candidate: complete, strict objective failed
 
-The original full-length model completed **5,625 finite updates / three epochs**, with **15,000 unique prompts, 45,000 example presentations**, and all saved final model tensors CPU-verified finite. Training job 1203514 completed. Evaluation job **1206228 is running** under the unchanged matched single-B200 nine-benchmark protocol.
+Training completed **5,625 finite updates / three epochs**, exactly **15K unique prompts and 45K presentations**, with all final model tensors finite. Evaluation job **1206228 completed successfully at 6:04 p.m. Eastern**, elapsed 6:42:08. All nine matched internal evaluations contain 1,974 records and eight samples each. The candidate passed **2/9 frozen integer gates: Minerva and GPQA**. Strict all-nine success was not achieved.
 
-| Benchmark | Solved at pass@8 | Frozen required gate | Result |
-| --- | ---: | ---: | --- |
-| AMC | 24/40 | 33/40 | Failed |
-| AIME 2025 | 5/30 | 8/30 | Failed |
-| AIME 2024 | 5/30 | 8/30 | Failed |
-| MATH | 428/500 | 451/500 | Failed |
-| CN Math 2024 | 11/30 | 14/30 | Failed |
-| Kaoyan | 135/199 | 138/199 | Failed |
+| Benchmark | Solved at pass@8 | Required gate | Pass@1 | Truncated samples | Gate |
+| --- | ---: | ---: | ---: | ---: | --- |
+| AMC | 24/40 | 33/40 | 35.00% | 60 | Failed |
+| AIME 2025 | 5/30 | 8/30 | 6.67% | 87 | Failed |
+| AIME 2024 | 5/30 | 8/30 | 6.67% | 99 | Failed |
+| MATH | 428/500 | 451/500 | 64.00% | 377 | Failed |
+| CN Math 2024 | 11/30 | 14/30 | 12.50% | 44 | Failed |
+| Kaoyan | 135/199 | 138/199 | 29.40% | 176 | Failed |
+| Minerva | 129/272 | 95/272 | 25.92% | 394 | Passed |
+| OlympiadBench | 355/675 | 385/675 | 28.43% | 1213 | Failed |
+| GPQA | 131/198 | 121/198 | 18.94% | 519 | Passed |
 
-Minerva, OlympiadBench, and GPQA are unfinished. The fixed candidate has already failed the strict all-nine objective. No complete-suite macro, final gate count, or causal explanation is inferred. The evaluation continues for an honest complete report. All six completed artifacts have been checked for complete problem identities and eight response/correctness/finish/token entries per question; Kaoyan was checked locally to keep computation off login nodes.
+The native matched seven-task pass@8 macro is **49.62%**, versus **49.55%** for matched base (difference +0.074 percentage points). The seven tasks are AIME 2025, CN Math 2024, Kaoyan, AMC, Minerva, OlympiadBench, GPQA. This macro is not the nine-gate objective and is not a claim of historical runtime equivalence.
+
+The complete manifest's non-model protocol, hardware, data hashes and problem identities match the frozen baseline. All nine individual artifacts were checked for expected identities and complete eight-sample fields. The driver produced paired question-cluster confidence intervals; these are per-task intervals without multiple-comparison adjustment:
+
+| Benchmark | Pass@8 difference vs matched base, percentage points | Paired 95% CI, percentage points |
+| --- | ---: | ---: |
+| AMC | -17.50 | [-32.50, -5.00] |
+| AIME 2025 | +3.33 | [-6.67, +16.67] |
+| AIME 2024 | -6.67 | [-20.00, +6.67] |
+| MATH | +0.40 | [-2.40, +3.20] |
+| CN Math 2024 | +13.33 | [-3.33, +30.00] |
+| Kaoyan | +11.06 | [+4.08, +17.68] |
+| Minerva | -2.21 | [-6.99, +2.21] |
+| OlympiadBench | +3.11 | [-0.30, +6.52] |
+| GPQA | -10.61 | [-18.18, -2.53] |
+
+CPU-only job 1210369 completed native aggregate verification for every benchmark, using the unchanged reporting definition for generation length and repeated eight-grams. [Aggregate diagnostics and paired confidence intervals](research/full_length_public_diagnostics_20261019.json) include no private source identities or responses. Per-task CIs and aggregate counts do not establish why the model failed.
+
+
+| Benchmark | Mean output tokens | Mean repeated-eight-gram fraction |
+| --- | ---: | ---: |
+| amc | 13548.1 | 0.2034 |
+| aime25 | 20700.3 | 0.3244 |
+| aime | 22119.0 | 0.3557 |
+| math | 7882.1 | 0.1269 |
+| cn_math_2024 | 17309.0 | 0.2365 |
+| kaoyan | 11234.3 | 0.1949 |
+| minerva | 11494.9 | 0.2331 |
+| olympiadbench | 14275.6 | 0.2251 |
+| gpqa | 15834.0 | 0.4147 |
 
 ## Two new plans
 
-- **Assistance plus coverage:** new source-only selection of exactly 15K complete original responses, with assistance utility capped at half each quota cell and deterministic coverage filling the remainder. CPU preparation job **1207446 is running on a compute node**. Its full 56,673-eligible-row native audit is incomplete, so the **four-B200 training job has not been submitted**. The CPU job alone owns the subsequent guarded submission. Training envelope: one six-hour four-B200 allocation, batch one / accumulation two / effective batch eight, three epochs / 5,625 updates.
-- **Longest-example Stage 2:** 2,997 complete originals after three conservative overlap exclusions without backfill. Initialize from the verified final original model with a new optimizer; two epochs, LR 5e-6, effective batch eight. The pinned native CPU schedule is 750 updates, 5,994 dataset presentations and 5,996 padded distributed samples. **Job 1207378 is pending resources**, requesting two B200s for six hours. Its provisional scheduler start was 5:55 p.m. Eastern; this is not a guarantee. GPU dataloader and finite-update checks remain startup requirements.
+**Stage 2 is complete:** job 1207378 ended successfully with exactly 750 finite updates / two epochs on 2,997 original examples and all final model tensors finite. Its benchmark accuracy remains **unmeasured**. The fixed parent development control solved 111/200 but truncated 331/1,600 samples, above the maximum 80. It therefore supplied no qualified control. The predeclared rule blocks both the Stage 2 development comparison and its terminal all-nine evaluation. No gate was relaxed and no replacement control was invented.
 
-The fixed 200-training-row native token-accuracy diagnostic **1207375 completed**: **1,109,712 / 1,324,044 = 83.8123%**, passing the predeclared experimental <95% admission rule for Stage 2. This threshold is not a validated convergence guarantee. The separate source-only **200-question held-out parent development control 1207417 is running**. Stage 2 requires complete finite training and a qualified development comparison before any final all-nine evaluation. No missing early checkpoint is substituted, and no optional hotter restart or C5 merge is included.
+**Assistance training timed out:** job 1207518 reached its six-hour limit at 10:29 p.m. Eastern before the required 5,625 updates. The highest structurally complete native checkpoint is **4,400**, with all 4,400 loss/gradient records finite, all four RNG rank files and optimizer/scheduler/model files present, and all saved checkpoint model tensors CPU-verified finite. The interrupted checkpoint 4,450 lacks complete native recovery state and is preserved without adoption. **1,225 updates remain; this model has not been evaluated.**
 
-## Resources, safety of execution, and publication scope
+CPU-only job 1210354 verified a review proposal for one four-B200, two-hour native resume. It would reassign eight unused Stage 2 evaluation GPU-hours while preserving the **97 GPU-hour total** and the assistance model's eight-hour final evaluation reserve. This is **not yet authorized**, and no recovery GPU job has been submitted. Scheduler-only tests currently do not demonstrate training plus full evaluation fitting the deadline. Estimates are provisional; an earlier eligible slot would still be required. Existing source responses, total schedule, loss, optimizer recovery and effective batch are preserved in the disabled proposal.
 
-The approved cap carries **40 prior committed GPU-hours + 57 additional = 97 total**. Extra envelopes: assistance training 24, Stage 2 training 12, two terminal evaluations 16, and diagnostic/development allocations 5. Distinct plans may overlap; duplicate jobs for the same candidate and unapproved repeats are forbidden. GPU allocations remain charged under the existing conservative rules even if they end early.
+## Resource and publication boundaries
 
-After an ARC staff warning, the remaining intensive login-node audit was terminated and replaced by CPU-only compute job 1207446. Heavy audits, native checks, model/data hashing, tests and guarded submission validation must run inside compute allocations. Login-node work is limited to lightweight scheduler, file and log operations.
+The original approved envelope remains **40 prior committed + 57 additional = 97 physical GPU-hours**, using conservative full-allocation charges. Failure or early completion does not reset that ledger. Blocked Stage 2 reserves are not automatically available for another training allocation; the review proposal needs explicit approval and renewed deadline feasibility.
 
-This public snapshot includes code and sanitized status only. Original proposal documents, raw datasets and generations, exact question/source identifiers, authorization records, detailed provenance receipts and raw logs remain outside this public sync. The separate ordinary-SFT submission fallback is preserved. No Hugging Face upload is authorized by this GitHub request.
+All heavy audits, serialization, tensor scans, model/data hashing, tests and guarded admission modules execute on compute nodes or locally. Login nodes are used only for lightweight scheduler/file/log operations. After transient connection errors, IPv4 SSH worked; no VPN repair or causal network fix is claimed.
 
-[Implemented plan details](TWO_PLAN_SETUP_20261019.md). Earlier dated entries in other reports are historical; this snapshot supersedes their live-state claims. Queue times, six-hour training fit and strict 9/9 success remain unproven.
+This public repository receives code and sanitized aggregates only. Private proposal originals, source/question IDs, authorization records, raw logs, detailed receipts, datasets and model weights remain excluded. The ordinary-SFT submission fallback is preserved. Hugging Face upload approval remains separate and outstanding.
+
+[Implemented plans](TWO_PLAN_SETUP_20261019.md). Earlier dated report entries are historical and superseded by this snapshot.
